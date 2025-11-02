@@ -3,6 +3,7 @@ import { Input } from "../../../../components/UI/Input/Input";
 import { Button } from "../../../../components/UI/Button/Button";
 import { Label } from "../../../../components/UI/Label/Label";
 import { Modal } from "../Modal/Modal";
+import { CategorySelect } from "../../../category/components/CategorySelect/CategorySelect";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Props } from "./itemModal.type";
@@ -18,6 +19,8 @@ export const ItemModal: React.FC<Props> = ({
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
@@ -25,6 +28,7 @@ export const ItemModal: React.FC<Props> = ({
     defaultValues: {
       title: "",
       subTitle: "",
+      categoryId: null,
       ...defaultValues,
     },
   });
@@ -78,6 +82,11 @@ export const ItemModal: React.FC<Props> = ({
               {errors.subTitle.message}
             </p>
           )}
+          <Label htmlFor="category">Category</Label>
+          <CategorySelect
+            value={watch("categoryId")}
+            onChange={(id) => setValue("categoryId", id)}
+          />
           <div className="flex justify-center gap-20 ">
             <Button type="button" onClick={onClose}>
               Cancel

@@ -3,4 +3,6 @@ export type Item = {
   title: string;
   subTitle: string;
   createdAt: string;
+  categoryId?: string | null;
+  completed: boolean;
 };

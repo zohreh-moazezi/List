@@ -4,7 +4,6 @@
 ::before,
 ::after {
   box-sizing: border-box;
-  margin: 0;
 }
 body,
 html {
@@ -24,7 +23,6 @@ html {
     transform: scale(1);
   }
 }
-
 .animate-fadeIn {
   animation: fadeIn 0.15s ease-out forwards;
 }

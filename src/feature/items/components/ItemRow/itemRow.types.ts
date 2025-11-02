@@ -4,4 +4,5 @@ export type Props = {
   item: Item;
   onEdit: (item: Item) => void;
   onDelete: (id: string) => void;
+  onToggle: (id: string) => void;
 };

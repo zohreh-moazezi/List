@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useItems } from "../../../context/ItemsContext";
+import { useItems } from "../../../context/items";
 import type { Item } from "../types";
 import type { FormData } from "../schema/itemSchema";
 
@@ -25,6 +25,8 @@ export const useModal = () => {
       title: data.title,
       subTitle: data.subTitle,
       createdAt: new Date().toISOString(),
+      categoryId: data.categoryId || null,
+      completed: false,
     };
     addItem(newItem);
     setModalOpen(false);
@@ -32,7 +34,11 @@ export const useModal = () => {
 
   const handleUpdate = (data: FormData) => {
     if (!editing) return;
-    updateItem(editing.id, { title: data.title, subTitle: data.subTitle });
+    updateItem(editing.id, {
+      title: data.title,
+      subTitle: data.subTitle,
+      categoryId: data.categoryId || null,
+    });
     setEditing(null);
     setModalOpen(false);
   };

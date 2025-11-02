@@ -2,7 +2,12 @@ import React from "react";
 import { ItemRow } from "../ItemRow/ItemRow";
 import type { Props } from "./itemList.type";
 
-export const ItemList: React.FC<Props> = ({ items, onDelete, onEdit }) => {
+export const ItemList: React.FC<Props> = ({
+  items,
+  onDelete,
+  onEdit,
+  onToggle,
+}) => {
   if (items.length === 0) {
     return (
       <h2 className="text-xl font-semibold text-gray-400">
@@ -18,6 +23,7 @@ export const ItemList: React.FC<Props> = ({ items, onDelete, onEdit }) => {
           item={item}
           onEdit={onEdit}
           onDelete={onDelete}
+          onToggle={onToggle}
         />
       ))}
     </div>
