@@ -11,7 +11,7 @@ export const ItemRow: React.FC<Props> = ({
   onToggle,
 }) => {
   return (
-    <div className="flex p-10 flex-col sm:flex-row sm:justify-between bg-white border border-gray-200 rounded-lg  shadow-sm hover:shadow-md transition">
+    <div className="flex p-10 justify-between sm:flex-row sm:justify-between bg-white border border-gray-200 rounded-lg  shadow-sm hover:shadow-md transition">
       <div className="flex gap-3">
         <div className="mt-5">
           <button onClick={() => onToggle(item.id)}>
